@@ -2,6 +2,7 @@
 let secret_num = Math.trunc(Math.random() * 20) + 1;
 console.log(secret_num);
 let score = 20;
+let highscore=0;
 document.querySelector('.score').textContent = score;
 
 document.querySelector('.again').addEventListener('click', function () {
@@ -29,7 +30,10 @@ const game_logic = function () {
     else if (guess_input === secret_num) {
 
         document.querySelector('.message').textContent = 'Correct Answer';
+        if(score>highscore){
+            highscore=score;
         document.querySelector('.highscore').textContent = score;
+        }
         document.querySelector('.message').textContent = 'Correct Answer';
         document.querySelector('.number').textContent = secret_num;
         document.querySelector('body').style.backgroundColor = '#60b347';
